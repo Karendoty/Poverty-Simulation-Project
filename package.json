@@ -4,7 +4,7 @@
   "description": "Website using CRUD API to work poverty simulation project",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node index.js && cd ./client && npm run dev",
     "build": "npm ci && cd client && npm ci && npm run build",
    
     "test": "node index.js"
