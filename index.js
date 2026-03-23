@@ -38,8 +38,8 @@ app.use(express.json());
 const upload = multer()
 const port = process.env.PORT || 3000; //Default port to http server
 
-const fs = require('fs');
-const path = require('path');
+// const fs = require('fs');
+// const path = require('path');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
