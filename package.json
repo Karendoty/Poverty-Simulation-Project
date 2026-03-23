@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "build": "cd client && npm ci && npm run build",
-    "client:build": "cd client && npm ci && npm run build",
-    "postinstall": "cd client && npm ci",
+    "build": "npm ci && cd client && npm ci && npm run build",
+    "client:build": "npm ci && cd client && npm ci && npm run build",
+    "postinstall": "npm ci && cd client && npm ci",
     "test": "node index.js"
   },
  
