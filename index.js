@@ -4,6 +4,23 @@
     when available serves the built React client from `client/dist` in
     production. Start this with `node index.js` (or use `npm start`).
 */
+const fs = require('fs');
+const path = require('path');
+
+if (process.env.DEPLOY_DIAG === '1') {
+    console.log('DEPLOY DIAG: cwd=', process.cwd());
+    console.log('DEPLOY DIAG: NODE_ENV=', process.env.NODE_ENV);
+    console.log('DEPLOY DIAG: NODE_VERSION=', process.version);
+    const nmPath = path.join(process.cwd(), 'node_modules');
+    console.log('DEPLOY DIAG: node_modules exists=', fs.existsSync(nmPath));
+    try {
+        const entries = fs.existsSync(nmPath) ? fs.readdirSync(nmPath) : [];
+        console.log('DEPLOY DIAG: node_modules sample=', entries.slice(0,20));
+        console.log('DEPLOY DIAG: express present=', entries.includes('express'));
+    } catch (e) {
+        console.log('DEPLOY DIAG: readdir error=', e && e.message);
+    }
+}
 
 //Libraries
 const express = require('express');
